@@ -1,0 +1,13 @@
+Simulations were run using UCL Legion High Performance Computing Facility (Legion@UCL), and associated support services. 
+Modelling was performed using Python scripts, while bash scripts were used to parallelise simulations between nodes. Python 3.6 interpreter was used to run Python scripts.All the python packages installed in that environment are listed in requirements_python_3.6.3.txt.
+
+All the scripts are located in the folder "scripts":
+worms2.py - python script containing "in silico worm" object.
+mainloop_def_leg3_fast.py - python script that performs 1 single simulation and uses worms2.py. 
+run3_fast.py - python script where all the parameters for the single simulation are set. It requires 2 input parameters: m2 - determining lifespan and s_fed - determining viscosity.
+fast_qsub.owain_prep.sh - bash script that runs run3_fast.py and gives as input m2 and s_fed. m2 and s_fed are read from 1_parameters_1_100.txt and 1_parameters_2_100.txt files. 1_parameters_1_100.txt and 1_parameters_2_100.txt files contain 4500 parameters each (45 conditions multiplied for 100 repeats each).
+The folder called "data" contains space_central_gauss.csv file which defines the gaussian food source in the center of the 300x300 grid. space_central_gauss.csv is set as a parameter in run3_fast.py and used in mainloop_def_leg3_fast.py to run simulations.   
+
+To run fast_qsub.owain_prep.sh you need to have a folder "result" in the root folder. When simulations are completed you will get the folder named as you set in the run3_fast.py (i.e. ct2='8000__F5-0.9_m2-sfed_50day_100rep'). This folder will contain the result of simulations: most importantly csv files called the same as the folder with added timepoint number. 4500 lines with various results for each simulation for a particular timepoint is written there. The lines contain the data regarding the number of adults, larvae, and food. These results files are used then later for further analyses.
+
+analyse_repilcas_uni_adul+L2S-max.py, 0_pictures.py, 2_pictures.py, make_a_list.py, save_res.py - these scripts are used for subsequent analyses of the performed simulations and to create graphs. To run these scripts in Legion enviroment the following bash scripts are used: 2.sh, 3.sh and 8.sh. 8.sh is a master script that can run all the simulations and analyses once all the parameters are set in run3_fast.py script, 1_parameters_1_100.txt and 1_parameters_2_100.txt files.
