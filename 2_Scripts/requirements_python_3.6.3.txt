@@ -18,7 +18,7 @@ Click==7.0
 clint==0.5.1
 cryptography==2.7
 cutadapt==2.4
-cvxopt==1.2.3
+cvxopt==1.2.7
 cycler==0.10.0
 Cython==0.29.13
 cyvcf2==0.11.5
