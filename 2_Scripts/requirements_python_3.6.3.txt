@@ -41,7 +41,7 @@ ipython-genutils==0.2.0
 itsdangerous==1.1.0
 jedi==0.14.1
 Jinja2==2.10.1
-joblib==0.13.2
+joblib==1.2.0
 kiwisolver==1.1.0
 ldap3==2.6
 llvmlite==0.29.0
