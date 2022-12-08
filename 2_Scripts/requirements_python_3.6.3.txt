@@ -10,7 +10,7 @@ attrs==19.1.0
 backcall==0.1.0
 biopython==1.74
 BoltzTraP2==19.7.3
-certifi==2019.6.16
+certifi==2022.12.7
 cffi==1.12.3
 cftime==1.0.3.4
 chardet==3.0.4
